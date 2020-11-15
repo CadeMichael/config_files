@@ -1,0 +1,25 @@
+# See /boot/overlays/README for all available options
+config_hdmi_boost=9
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt=2560 1440 60 3 0 0 1
+max_framebuffer_width=2560
+max_framebuffer_height=1440
+hdmi_pixel_freq_limit=400000000
+#disable_overscan=1
+#overscan_left=0
+#overscan_right=0
+#overscan_top=0
+#overscan_bottom=0
+#hdmi_cvt=5120 2880 60 3
+#hdmi_group=2
+#hdmi_mode=87
+#hdmi_drive=2
+dtparam=audio=on
+gpu_mem=128
+over_voltage=2
+arm_freq=1750
+over_voltage=6
+arm_freq=2147
+gpu_freq=750
+initramfs initramfs-linux.img followkernel
