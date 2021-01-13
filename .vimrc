@@ -51,7 +51,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Custom key bindings
-nnoremap <C-h> :History <CR>
+nnoremap <C-t> :FZF<CR>
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 
