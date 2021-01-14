@@ -42,12 +42,20 @@ set nohlsearch
 " scrolling
 set scrolloff=8
 
+" lightline 
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ }
+
 " vim-plug
 call plug#begin('~/.vim/plugged')
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   Plug 'vim-scripts/AutoComplPop'
   Plug 'preservim/nerdtree'
+  Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " Custom key bindings
