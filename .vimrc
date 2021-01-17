@@ -6,6 +6,8 @@ endif
 
 " basic requirements
 set nocompatible
+" mac specific for deleting properly
+set backspace=indent,eol,start
 
 filetype indent plugin on
 
@@ -42,20 +44,29 @@ set nohlsearch
 " scrolling
 set scrolloff=8
 
-" lightline 
+" lightline
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'jellybeans',
       \ }
+
+" devicons
+set conceallevel=3
+set encoding=UTF-8
+
+"dart
+let g:dart_format_on_save = 1
+let g:dart_style_guide = 2
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'vim-scripts/AutoComplPop'
-  Plug 'preservim/nerdtree'
-  Plug 'itchyny/lightline.vim'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'vim-scripts/AutoComplPop'
+    Plug 'itchyny/lightline.vim'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 " Custom key bindings
