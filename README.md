@@ -30,7 +30,7 @@
 - after sourcing run `:PlugInstall` and you should be good to go!
 - installed NERDTree, fzf, and autocomplpop to give vim more of a 'modern' text editor feel and make it less bare bones
 
-* eventually want to get a language server running and migrate from vs-code to vim for Flutter dev
+*eventually want to get a language server running and migrate from vs-code to vim for Flutter dev*
 
 - using vim-lsc and the dart vim plugin offers great autocomplete for flutter dev as well as python and c++
   - vim-lsc is also great for python and c++ autocomplete. I have an example of c++ using clangd in this vimrc
