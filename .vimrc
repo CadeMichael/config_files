@@ -84,6 +84,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'dart-lang/dart-vim-plugin'
+    Plug 'natebosch/vim-lsc'
+    Plug 'natebosch/vim-lsc-dart'
 call plug#end()
 
 " Custom key bindings
