@@ -65,6 +65,7 @@ let g:lsc_auto_map = v:true
 " vim lsc language server configs 
 " -------------------------------
 let g:lsc_server_commands = {
+    \ 'python': 'pyls',
     \ 'cpp': {
         \ 'command': 'clangd --background-index',
         \ 'suppress_stderr': v:true
