@@ -55,9 +55,26 @@ let g:lightline = {
 set conceallevel=3
 set encoding=UTF-8
 
-"dart
+" dart
 let g:dart_format_on_save = 1
 let g:dart_style_guide = 2
+
+" vim-lsc
+let g:lsc_auto_map = v:true
+
+" vim lsc language server configs 
+" -------------------------------
+let g:lsc_server_commands = {
+    \ 'cpp': {
+        \ 'command': 'clangd --background-index',
+        \ 'suppress_stderr': v:true
+    \},
+    \ 'c': {
+        \ 'command': 'clangd --background-index',
+        \ 'suppress_stderr': v:true
+    \},
+\}
+" -------------------------------
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
