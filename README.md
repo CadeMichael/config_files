@@ -34,3 +34,5 @@
 
 - using vim-lsc and the dart vim plugin offers great autocomplete for flutter dev as well as python and c++
   - vim-lsc is also great for python and c++ autocomplete. I have an example of c++ using clangd in this vimrc
+- the init.vim is for ***NeoVim***, it allows it to use the same config as I am using for vim.
+  - I am choosing to use neovim over vim as it is community driven versus a passion project and aligns more with what *(subjective opinion)* I belive open source software should be about.
