@@ -105,7 +105,7 @@ nnoremap <C-h> <C-w>h
 
 nnoremap <C-t> :FZF<CR>
 
-nnoremap <C-f> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTree<CR>
 
 " Navigate the complete menu items like CTRL+n / CTRL+p would.
 inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
