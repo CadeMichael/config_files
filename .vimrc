@@ -6,13 +6,12 @@ endif
 
 " basic requirements
 set nocompatible
-" mac specific for deleting properly
-set backspace=indent,eol,start
-
 filetype indent plugin on
-
 syntax on
 set noerrorbells
+
+" mac specific for deleting properly
+set backspace=indent,eol,start
 
 " case insensitive searching
 set ignorecase
