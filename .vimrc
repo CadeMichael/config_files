@@ -62,7 +62,7 @@ let g:dart_style_guide = 2
 " vim-lsc
 let g:lsc_auto_map = v:true
 
-" vim lsc language server configs 
+" vim lsc language server configs
 " -------------------------------
 let g:lsc_server_commands = {
     \ 'python': 'pyls',
@@ -90,9 +90,21 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Custom key bindings
+" ---------------------------------------------------------------
+" switching between splits more effectively
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
+
 nnoremap <C-t> :FZF<CR>
 
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-space> :NERDTreeToggle<CR>
+
+" Navigate the complete menu items like CTRL+n / CTRL+p would.
+inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
+" ---------------------------------------------------------------
 
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '|'
@@ -100,7 +112,3 @@ let g:NERDTreeDirArrowCollapsible = '|'
 "Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
-
-" Navigate the complete menu items like CTRL+n / CTRL+p would.
-inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
-inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
