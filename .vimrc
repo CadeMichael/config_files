@@ -58,6 +58,10 @@ set encoding=UTF-8
 let g:dart_format_on_save = 1
 let g:dart_style_guide = 2
 
+" vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 " vim-lsc
 let g:lsc_auto_map = v:true
 
@@ -92,6 +96,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'natebosch/vim-lsc'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'natebosch/vim-lsc-dart'
 call plug#end()
 
