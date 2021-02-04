@@ -87,6 +87,10 @@ let g:NERDTreeDirArrowCollapsible = '|'
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
+" floaterm
+let g:floaterm_keymap_toggle = '<Leader><CR>' " leader is usually '\'
+let g:floaterm_keymap_kill = '<Leader><BS>'
+
 " vim-plug
 call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -98,6 +102,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'natebosch/vim-lsc'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'natebosch/vim-lsc-dart'
+    Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 " Custom key bindings
