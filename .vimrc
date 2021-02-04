@@ -95,6 +95,7 @@ let g:floaterm_keymap_kill = '<Leader><BS>'
 call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'preservim/nerdtree'
     Plug 'vim-scripts/AutoComplPop'
     Plug 'itchyny/lightline.vim'
     Plug 'ryanoasis/vim-devicons'
