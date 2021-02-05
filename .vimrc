@@ -90,6 +90,9 @@ let g:floaterm_keymap_kill = '<Leader><BS>'
 " pairing
 let g:pear_tree_repeatable_expand = 0
  
+ " markdown --sudo npm -g install instant-markdown-d@next--
+let g:instant_markdown_autostart = 0
+ 
 " vim-plug
 call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -107,6 +110,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'microsoft/vscode-python'
     Plug 'tmsvg/pear-tree'
     Plug 'voldikss/vim-floaterm'
+    Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
 " Custom key bindings
@@ -119,6 +123,8 @@ nnoremap <C-h> <C-w>h
 " Plug bindings 
 nnoremap <C-t> :FZF<CR>
 nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-m><CR> :InstantMarkdownPreview<CR>
+nnoremap <C-m><BS> :InstantMarkdownStop<CR>
 " Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
