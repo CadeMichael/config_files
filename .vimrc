@@ -90,7 +90,7 @@ let g:floaterm_keymap_kill = '<Leader><BS>'
 " pairing
 let g:pear_tree_repeatable_expand = 0
  
- " markdown --sudo npm -g install instant-markdown-d@next--
+" markdown --sudo npm -g install instant-markdown-d@next--
 let g:instant_markdown_autostart = 0
  
 " vim-plug
