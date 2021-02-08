@@ -23,12 +23,27 @@
 - very minimalist zsh setup on my mac
 - shows when I make an update to a git repo and the current directory without crowding the terminal
 
-## .vimrc
+## .vimrc -- UNUSED
 
 - trying to learn vim and become more of a terminal poweruser
 - installed vim-plug via their autoinstaller to make it easy to add to future machines (no need to reinstall just source the rc and you're done)
 - after sourcing run `:PlugInstall` and you should be good to go!
 - installed NERDTree, fzf, and autocomplpop to give vim more of a 'modern' text editor feel and make it less bare bones
+
+## Fully switched to NVIM
+- two init.vim files one with **kite** and **deoplete** in addition to vim-lsc for auto complete. The second just uses vim-lsc and AucoComplPop for a lightweight autocomplete. Might use CoC but not ready to ride it yet (a bit too much does more than I'd like). Might add ale for linting in the future but as of right now these configs are sufficient. 
+
+- Reasons for vim-lsc
+  - very lightweight
+  - made for dart (with affiliated plugin), I'd say this is a must for Flutter mobile dev in vim
+- reasons for Deoplete
+  - deoplete works with vsnip and gives suggestions for your snippets.
+  - Deoplete for Omni-complete with vim-go compatibility for golang completion. 
+- downside of Deoplete
+  - conflicts with vim-lsc with cpp files so I disabled it
+  - conflicts with kite for python
+  - not huge downsides as you can disable deoplete for these filetypes
+  
 
 *eventually want to get a language server running and migrate from vs-code to vim for Flutter dev*
 
