@@ -1,3 +1,7 @@
+" ----------------installCommand----------------------
+" sh -c 'curl -fLo '${XDG_DATA_HOME:-$HOME/.local/share}'/nvim/site/autoload/plug.vim --create-dirs \
+"       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+"
 " ---------------------Plugs--------------------------
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
@@ -9,6 +13,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'preservim/tagbar'
     Plug 'natebosch/vim-lsc'
     Plug 'natebosch/vim-lsc-dart'
     Plug 'Neevash/awesome-flutter-snippets'
@@ -128,6 +133,7 @@ nnoremap <C-t> :FZF<CR>
 nnoremap <C-Space> :NERDTreeToggle<CR>
 nnoremap <C-m><CR> :InstantMarkdownPreview<CR>
 nnoremap <C-m><BS> :InstantMarkdownStop<CR>
+nnoremap <Space>t :TagbarToggle<CR>
 " Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
