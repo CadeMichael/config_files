@@ -8,9 +8,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'hrsh7th/vim-vsnip'
-    Plug 'tmsvg/pear-tree'
     Plug 'voldikss/vim-floaterm'
     Plug 'gruvbox-community/gruvbox'
+    Plug 'phanviet/vim-monokai-pro'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'preservim/tagbar'
     Plug 'instant-markdown/vim-instant-markdown', {'for' : 'markdown'}
@@ -18,6 +18,7 @@ call plug#end()
 
 " colorscheme
 colorscheme gruvbox
+" colorscheme monokai_pro
 
 " devicons
 set conceallevel=3
@@ -86,7 +87,6 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 set shortmess+=c
 set complete+=kspell
-set completeopt=menuone,longest,noinsert,noselect
 autocmd CompleteDone * if !pumvisible() | pclose | endif
 set updatetime=300
 
@@ -104,7 +104,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
 " Plug command bindings 
-nnoremap <C-Space> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 " Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
@@ -113,9 +113,6 @@ imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab
 smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-" Navigate the complete menu items like CTRL+n / CTRL+p would.
-inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
-inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
 " tagbar
 nnoremap <Space>t :TagbarToggle<CR>
 
@@ -148,11 +145,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
