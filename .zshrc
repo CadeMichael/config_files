@@ -31,3 +31,26 @@ unset __conda_setup
 autoload -Uz compinit && compinit
 # case insensitive path-completion 
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#Homebrew upgrade message
+#libffi is keg-only, which means it was not symlinked into /usr/local,
+#because macOS already provides this software and installing another version in
+#parallel can cause all kinds of trouble.
+
+#For compilers to find libffi you may need to set:
+#  export LDFLAGS="-L/usr/local/opt/libffi/lib"
+#  export CPPFLAGS="-I/usr/local/opt/libffi/include"
+
+#For pkg-config to find libffi you may need to set:
+#  export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+
+# c/c++ server
+export PATH=":/usr/local/opt/llvm/bin:$PATH"
+# go 
+export GOBIN="/Users/cadelueker/go/bin"
+export PATH=$PATH:$GOBIN
+# fish
+exec fish
