@@ -31,23 +31,23 @@
 - installed NERDTree, fzf, and autocomplpop to give vim more of a 'modern' text editor feel and make it less bare bones
 
 ## Fully switched to NVIM
-- two init.vim files one with **kite** and **deoplete** in addition to vim-lsc for auto complete. The second just uses vim-lsc and AucoComplPop for a lightweight autocomplete. Might use CoC but not ready to ride it yet (a bit too much does more than I'd like). Might add ale for linting in the future but as of right now these configs are sufficient. 
+- two init.vim files one with **deoplete** and **ale** for android. The second **CoC** for autocomplete. 
 
-- Reasons for vim-lsc
+- Reasons for CoC
+  - CoC is really the best completion engine. I tried to resist using it and only use lightweight plugins. but with it's own mini plugin extension network it is unparalleled. 
+  - I finally switched as I saw myself using vim less due to some of the shortcomings of the other autocompletes and made the switch.
+  - the integration with Dart is amazing it feels almost like a full fledged IDE without all of the bloat
+- Reasons for vim-lsc (Depreciated)
   - very lightweight
   - made for dart (with affiliated plugin), I'd say this is a must for Flutter mobile dev in vim
+  - **why I stopped using**
+  - it was having a lot of difficulty working with other completion engines like deoplete and the snippet integration wasn't as good as I'd like. This lead me to finally take the plunge and use CoC
 - reasons for Deoplete
   - deoplete works with vsnip and gives suggestions for your snippets.
   - Deoplete for Omni-complete with vim-go compatibility for golang completion. 
+  - works on Termux with android for tablet use in a pinch
 - downside of Deoplete
   - conflicts with vim-lsc with cpp files so I disabled it
   - conflicts with kite for python
   - not huge downsides as you can disable deoplete for these filetypes
   
-
-*eventually want to get a language server running and migrate from vs-code to vim for Flutter dev*
-
-- using vim-lsc and the dart vim plugin offers great autocomplete for flutter dev as well as python and c++
-  - vim-lsc is also great for python and c++ autocomplete. I have an example of c++ using clangd in this vimrc
-- the init.vim is for ***NeoVim***, it allows it to use the same config as I am using for vim.
-  - I am choosing to use neovim over vim as it is community driven versus a passion project and aligns more with what *(subjective opinion)* I belive open source software should be about.
