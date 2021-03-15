@@ -1,6 +1,6 @@
 # config_files
 
-- these include files that I use on my **Arch** Desktop / macbook running **the mac os**/ raspberry pi running **arch arm**
+- these include files that I use on my mini atx Desktop running **Arch GNU/Linux** / macbook running **the mac os**/ raspberry pi running **arch arm**
 - by no means a power user but I try to add some custom shortcuts / things that make my life a bit easier
 
 (main files)
