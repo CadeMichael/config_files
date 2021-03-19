@@ -2,12 +2,13 @@
 " vim-plug
 call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'preservim/nerdtree'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'itchyny/lightline.vim'
     Plug 'dense-analysis/ale'
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'hrsh7th/vim-vsnip'
     Plug 'voldikss/vim-floaterm'
     Plug 'gruvbox-community/gruvbox'
     Plug 'phanviet/vim-monokai-pro'
@@ -18,7 +19,6 @@ call plug#end()
 
 " colorscheme
 colorscheme gruvbox
-" colorscheme monokai_pro
 
 " devicons
 set conceallevel=3
@@ -87,6 +87,7 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 set shortmess+=c
 set complete+=kspell
+set completeopt=menuone,longest,noinsert
 autocmd CompleteDone * if !pumvisible() | pclose | endif
 set updatetime=300
 
@@ -98,6 +99,7 @@ set nohlsearch
 set scrolloff=8
 
 " ----------------Custom key bindings-----------------------------
+
 " switching between splits more effectively
 nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
@@ -105,17 +107,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
 " Plug command bindings 
 nnoremap <C-n> :NERDTreeToggle<CR>
-" Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-" Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 " tagbar
 nnoremap <Space>t :TagbarToggle<CR>
-
+" fzf 
+nnoremap <C-t> :Files<CR>
 " COC -------------------------------------------------------------------
 
 " more height for information display 
@@ -129,20 +124,6 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -261,3 +242,19 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" ---- snippets ----
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<leader><tab>'
+" -----------------------------------------------------------------------
