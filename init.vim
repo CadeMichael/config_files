@@ -1,9 +1,12 @@
+" Cade Lueker NVIM config
 " ---------------------Plugs--------------------------
 " vim-plug
 call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'preservim/nerdtree'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
     Plug 'ryanoasis/vim-devicons'
     Plug 'itchyny/lightline.vim'
     Plug 'dense-analysis/ale'
@@ -11,14 +14,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'voldikss/vim-floaterm'
     Plug 'gruvbox-community/gruvbox'
-    Plug 'phanviet/vim-monokai-pro'
+    Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'ayu-theme/ayu-vim'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'preservim/tagbar'
     Plug 'instant-markdown/vim-instant-markdown', {'for' : 'markdown'}
 call plug#end()
+" ----------------------------------------------------
 
 " colorscheme
-colorscheme gruvbox
+set termguicolors
+colorscheme dracula
 
 " devicons
 set conceallevel=3
@@ -28,7 +34,7 @@ set encoding=UTF-8
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'dracula',
       \ }
 
 " NERDTree
@@ -111,10 +117,17 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Space>t :TagbarToggle<CR>
 " fzf 
 nnoremap <C-t> :Files<CR>
+" gitgutter
+nnoremap <space>g :GitGutterToggle<CR>
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+" stage 'hunk' with <leader>hs use hu to unstage
+" preview changes with <Leader>hp
+
 " COC -------------------------------------------------------------------
 
 " more height for information display 
-set cmdheight=2
+" set cmdheight=2
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
