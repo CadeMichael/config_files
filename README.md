@@ -22,6 +22,35 @@
 
 - very minimalist zsh setup on my mac
 - shows when I make an update to a git repo and the current directory without crowding the terminal
+```zsh
+#git status
+
+# Load version control information
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*:*' unstagedstr       "!"
+zstyle ':vcs_info:git:*' formats '%F{magenta}(%b%u)%f'
+
+setopt PROMPT_SUBST
+PROMPT='%F{green}[%~%f${vcs_info_msg_0_}%F{green}]%% %f'
+---
+
+# getting path completion 
+
+autoload -Uz compinit && compinit
+# case insensitive path-completion 
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
+```
+
+- plugins 
+    - [autocomplete](https://github.com/marlonrichert/zsh-autocomplete)
+    - [autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    - [highlighting](source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh)
 
 ## .vimrc -- UNUSED
 
