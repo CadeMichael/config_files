@@ -50,7 +50,7 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 - plugins 
     - [autocomplete](https://github.com/marlonrichert/zsh-autocomplete)
     - [autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-    - [highlighting](source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh)
+    - [highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ## .vimrc -- UNUSED
 
