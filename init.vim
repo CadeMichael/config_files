@@ -3,28 +3,27 @@
 " vim-plug
 call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'preservim/nerdtree'
+    " Plug 'ryanoasis/vim-devicons'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
-    Plug 'ryanoasis/vim-devicons'
     Plug 'itchyny/lightline.vim'
     Plug 'dense-analysis/ale'
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'voldikss/vim-floaterm'
     Plug 'gruvbox-community/gruvbox'
-    Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'ayu-theme/ayu-vim'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'preservim/tagbar'
+    Plug 'sheerun/vim-polyglot'
     Plug 'instant-markdown/vim-instant-markdown', {'for' : 'markdown'}
 call plug#end()
 " ----------------------------------------------------
 
 " colorscheme
 set termguicolors
-colorscheme dracula
+colorscheme gruvbox
 
 " devicons
 set conceallevel=3
@@ -34,7 +33,7 @@ set encoding=UTF-8
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
+      \ 'colorscheme': 'gruvbox',
       \ }
 
 " NERDTree
@@ -123,6 +122,9 @@ nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 " stage 'hunk' with <leader>hs use hu to unstage
 " preview changes with <Leader>hp
+
+" flutter 
+nnoremap <c-e>e :CocCommand flutter.emulators<CR>
 
 " COC -------------------------------------------------------------------
 
