@@ -1,4 +1,5 @@
 #git status
+
 # Load version control information
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -52,5 +53,17 @@ export PATH=":/usr/local/opt/llvm/bin:$PATH"
 # go 
 export GOBIN="/Users/cadelueker/go/bin"
 export PATH=$PATH:$GOBIN
-# fish
-exec fish
+
+# not sure what sbin is but...
+export PATH="/usr/local/sbin:$PATH"
+# Haskell
+[ -f "/Users/cadelueker/.ghcup/env" ] && source "/Users/cadelueker/.ghcup/env" # ghcup-env
+source "$HOME/.cargo/env"
+
+alias save-notes='git pull && git add . && git commit -m "notes" && git push'
+alias nvconf='nvim ~/.config/nvim/init.vim'
+
+# plugins
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/auto-ls.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # has to be sourced last
